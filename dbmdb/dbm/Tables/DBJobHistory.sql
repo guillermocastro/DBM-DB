@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbm].[DBJobHistory] (
+    [Id]                  BIGINT           IDENTITY (1, 1) NOT NULL,
+    [instance_id]         INT              NOT NULL,
+    [InstanceId]          NVARCHAR (128)   NULL,
+    [job_id]              UNIQUEIDENTIFIER NOT NULL,
+    [step_id]             INT              NOT NULL,
+    [step_name]           [sysname]        NOT NULL,
+    [sql_message_id]      INT              NOT NULL,
+    [sql_severity]        INT              NOT NULL,
+    [message]             NVARCHAR (4000)  NULL,
+    [run_status]          INT              NOT NULL,
+    [run_date]            INT              NOT NULL,
+    [run_time]            INT              NOT NULL,
+    [run_duration]        INT              NOT NULL,
+    [operator_id_emailed] INT              NOT NULL,
+    [operator_id_netsent] INT              NOT NULL,
+    [operator_id_paged]   INT              NOT NULL,
+    [retries_attempted]   INT              NOT NULL,
+    [DataImportUTC]       DATETIME         DEFAULT (getutcdate()) NULL,
+    CONSTRAINT [PK.DBJobHistory.Id] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 80)
+);
+
