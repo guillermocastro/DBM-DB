@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>dbmdb</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{a23e2f6a-d5fa-4fd8-a244-b9b3b8ea4618}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>dbmdb</RootNamespace>
+    <AssemblyName>dbmdb</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>dbm</DefaultSchema>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbm\" />
+    <Folder Include="dbm\Tables\" />
+    <Folder Include="dbm\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbm\Scripts" />
+    <Folder Include="win" />
+    <Folder Include="win\Scripts" />
+    <Folder Include="win\Tables" />
+    <Folder Include="win\Views" />
+    <Folder Include="win\Stored Procedures" />
+    <Folder Include="win\Functions" />
+    <Folder Include="dbm\Triggers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbm\Tables\Configuration.sql" />
+    <Build Include="dbm\Tables\DB.sql" />
+    <Build Include="dbm\Tables\DBBackup.sql" />
+    <Build Include="dbm\Tables\DBFile.sql" />
+    <Build Include="dbm\Tables\DBJob.sql" />
+    <Build Include="dbm\Tables\DBJobHistory.sql" />
+    <Build Include="dbm\Tables\DBRestore.sql" />
+    <Build Include="dbm\Tables\DBTable.sql" />
+    <Build Include="dbm\Tables\Device.sql" />
+    <Build Include="dbm\Tables\Disk.sql" />
+    <Build Include="dbm\Tables\DistributionList.sql" />
+    <Build Include="dbm\Tables\Instance.sql" />
+    <Build Include="dbm\Tables\OSPatch.sql" />
+    <Build Include="dbm\Tables\Product.sql" />
+    <Build Include="dbm\Tables\SQLPatch.sql" />
+    <Build Include="dbm\Tables\SQLServer.sql" />
+    <Build Include="dbm\Tables\tmpDB.sql" />
+    <Build Include="dbm\Tables\tmpDBBackup.sql" />
+    <Build Include="dbm\Tables\tmpDBBackup2.sql" />
+    <Build Include="dbm\Tables\tmpDBFile.sql" />
+    <Build Include="dbm\Tables\tmpDBJob.sql" />
+    <Build Include="dbm\Tables\tmpDBJobHistory.sql" />
+    <Build Include="dbm\Tables\tmpDBRestore.sql" />
+    <Build Include="dbm\Views\_Disk.sql" />
+    <Build Include="dbm\Views\_SQLCompliance.sql" />
+    <Build Include="dbm\Views\_SQLPatch.sql" />
+    <Build Include="Security\dbm.sql" />
+    <Build Include="dbm\Tables\PerfMon.sql" />
+    <Build Include="dbm\Tables\InstanceCounter.sql" />
+    <Build Include="dbm\Tables\TableUsage.sql" />
+    <Build Include="dbm\Tables\Script.sql" />
+    <Build Include="dbm\Tables\Counter.sql" />
+    <Build Include="dbm\Tables\Restore.sql" />
+    <Build Include="dbm\Views\_PerfMon.sql" />
+    <Build Include="dbm\Views\_Script.sql" />
+    <Build Include="dbm\Views\_TableUsage.sql" />
+    <Build Include="dbm\Tables\Hour.sql" />
+    <Build Include="Security\win.sql" />
+    <Build Include="dbm\Tables\Platform.sql" />
+    <Build Include="dbm\Triggers\InstanceIdI.sql" />
+    <Build Include="dbm\Tables\UnusedIndex.sql" />
+    <Build Include="dbm\Tables\DuplicatedIndex.sql" />
+    <Build Include="dbm\Tables\IndexFragmentation.sql" />
+    <Build Include="dbm\Tables\MissingIndex.sql" />
+  </ItemGroup>
+</Project>
